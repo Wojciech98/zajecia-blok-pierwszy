@@ -20,5 +20,8 @@ public class Main {
 
         human.addMyCar(BMW);
 
+        System.out.println("________________________");
+        human.getSalry();
+
     }
 }
