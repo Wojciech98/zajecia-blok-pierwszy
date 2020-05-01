@@ -24,6 +24,7 @@ public class Animal {
         if(weight>0) {
             weight -= 2;
             System.out.println("add 2kg");
+
             System.out.println("My weight="+weight);
         }else{
             System.out.println("Ziom, nie mam masy!!!");

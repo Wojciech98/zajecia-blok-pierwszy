@@ -13,6 +13,12 @@ public class Main {
         animal.takeForAWalk();
         animal.takeForAWalk();
         animal.takeForAWalk();
-        animal.takeForAWalk();
+
+        Human human = new Human();
+        Car BMW = new Car();
+
+
+        human.addMyCar(BMW);
+
     }
 }
