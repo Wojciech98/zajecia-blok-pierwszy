@@ -6,7 +6,7 @@ import java.util.Date;
 public class Human {
 
     Animal pet;
-    Car myCar;
+    private Car myCar;
     Double salary;
 
     Date date = new Date();
@@ -38,7 +38,19 @@ public class Human {
         return myCar;
     }
 
-    public Double getSalry() {
+    public void setMyCar(Car myCar) {
+        if(salary>=myCar.price) {
+            System.out.println("You can buy new car!");
+            addMyCar(myCar);
+        }else if (salary>(myCar.price/12)){
+            System.out.println("You can buy new car for credit");
+            addMyCar(myCar);
+        }else {
+            System.out.println("You don't have enough money");
+        }
+    }
+
+    public Double getSalary() {
         System.out.println(date + " " + " " + salary);
         return salary;
     }
