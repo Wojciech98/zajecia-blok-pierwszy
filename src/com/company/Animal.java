@@ -1,11 +1,11 @@
 package com.company;
 
-import java.util.WeakHashMap;
+
 
 public class Animal {
 
 
-    String species;
+    String species="dog";
     private Double weight;
 
     public Animal() {
@@ -29,5 +29,9 @@ public class Animal {
         }else{
             System.out.println("Ziom, nie mam masy!!!");
         }
+    }
+
+    public String toString(){
+        return species+" "+weight;
     }
 }
