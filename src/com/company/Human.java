@@ -9,7 +9,7 @@ public class Human {
 
     Animal pet;
     private Car myCar;
-    Double salary;
+    Double salary=1.0;
 
     Date date = new Date();
 

@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Device;
 
 public class Main {
 
@@ -31,7 +32,6 @@ public class Main {
         bmw_2.setProducer("Bayerische Motoren Werke");
 
 
-
         Car opel = new Car();
         opel.setColour("blue");
         opel.setModel("corsa");
@@ -51,5 +51,20 @@ public class Main {
         System.out.println(bmw_1.toString());
         System.out.println(animal.toString());
 
+
+        System.out.println("-----------------------------");
+
+
+        human.setMyCar(opel);
+
+        Device device = new Device() {
+            @Override
+            public boolean turnOn() {
+                System.out.println("Turn On");
+                return true;
+            }
+        };
+
+        device.turnOn();
     }
 }

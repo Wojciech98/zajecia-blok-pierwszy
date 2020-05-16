@@ -1,6 +1,6 @@
 package com.company.devices;
 
-public class Car {
+public class Car extends Device {
 
 
     public String model;
@@ -11,6 +11,12 @@ public class Car {
     public String toString() {
 
         return model + " " + price + " " + colour + " " + producer;
+    }
+
+    @Override
+    public boolean turnOn() {
+        System.out.println("Turn On");
+        return true;
     }
 
     public int getPrice() {
