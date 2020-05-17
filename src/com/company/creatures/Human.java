@@ -1,6 +1,7 @@
-package com.company;
+package com.company.creatures;
 
 
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -8,7 +9,7 @@ import java.util.Date;
 
 public class Human {
 
-    Animal pet;
+    public Animal pet;
     private Car myCar;
     Double salary;
     double cash;
@@ -25,7 +26,7 @@ public class Human {
     public Human() {
     }
 
-    void addMyCar(Car car) {
+    public void addMyCar(Car car) {
         this.myCar = car;
     }
 

@@ -1,9 +1,11 @@
-package com.company;
+package com.company.creatures;
 
 
-public class Animal {
+import com.company.Salleable;
 
-    Salleable salleable = new Salleable() {
+public abstract class Animal implements Feedable {
+
+    public Salleable salleable = new Salleable() {
         @Override
         public void sell(Human seller, Human buyer, Double price) {
             if(buyer.getCash()>=price) {
@@ -40,19 +42,23 @@ public class Animal {
     String species = "dog";
     private Double weight;
 
+    public Animal(String species, Double weight) {
+        this.species = species;
+        this.weight = weight;
+    }
 
     public Animal() {
         this.weight = 10.0;
     }
 
-    void feed() {
+   public void feed() {
 
         weight += 2;
 
 
     }
 
-    void takeForAWalk() {
+  public   void takeForAWalk() {
 
         if (weight > 0) {
             weight -= 2;

@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.Human;
 import com.company.devices.Car;
 import com.company.devices.Device;
 import com.company.devices.Phone;
@@ -9,12 +11,22 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Animal animal = new Animal();
+        Animal animal = new Animal() {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
         animal.feed();
         animal.takeForAWalk();
         animal.takeForAWalk();
 
-        Animal animal_1 = new Animal();
+        Animal animal_1 = new Animal() {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
 
 
         Car bmw_1 = new Car();
