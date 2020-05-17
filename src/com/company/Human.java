@@ -2,6 +2,7 @@ package com.company;
 
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.util.Date;
 
@@ -9,13 +10,21 @@ public class Human {
 
     Animal pet;
     private Car myCar;
-    Double salary=1.0;
+    Double salary;
+    double cash;
+    Phone phone;
+
 
     Date date = new Date();
 
-public String toString(){
-    return pet+" "+myCar+"  "+salary;
-}
+    public String toString() {
+        return pet + " " + myCar + "  " + salary;
+    }
+
+
+    public Human() {
+    }
+
     void addMyCar(Car car) {
         this.myCar = car;
     }
@@ -29,9 +38,9 @@ public String toString(){
             System.out.println("You must take annex to the contract from Hania");
             System.out.println("Zus and US now know payout changes ");
 
-            return salary;
+            return this.salary = salary;
         }
-        return salary;
+        return this.salary = salary;
     }
 
     public Animal getPet() {
@@ -43,13 +52,13 @@ public String toString(){
     }
 
     public void setMyCar(Car myCar) {
-        if(salary>=myCar.price) {
+        if (salary >= myCar.price) {
             System.out.println("You can buy new car!");
             addMyCar(myCar);
-        }else if (salary>(myCar.price/12)){
+        } else if (salary > (myCar.price / 12)) {
             System.out.println("You can buy new car for credit");
             addMyCar(myCar);
-        }else {
+        } else {
             System.out.println("You don't have enough money");
         }
     }
@@ -57,5 +66,29 @@ public String toString(){
     public Double getSalary() {
         System.out.println(date + " " + " " + salary);
         return salary;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+
+    public double getCash() {
+        return cash + salary;
+    }
+
+    public void setCash(double cash) {
+        this.cash = this.cash + cash;
+    }
+
+    public void setCash() {
+        this.cash = cash + cash;
     }
 }

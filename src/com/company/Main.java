@@ -2,22 +2,20 @@ package com.company;
 
 import com.company.devices.Car;
 import com.company.devices.Device;
+import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
 
+
         Animal animal = new Animal();
         animal.feed();
         animal.takeForAWalk();
         animal.takeForAWalk();
-        animal.takeForAWalk();
-        animal.takeForAWalk();
-        animal.takeForAWalk();
-        animal.takeForAWalk();
-        animal.takeForAWalk();
 
-        Human human = new Human();
+        Animal animal_1 = new Animal();
+
 
         Car bmw_1 = new Car();
         bmw_1.setColour("red");
@@ -31,21 +29,17 @@ public class Main {
         bmw_2.setPrice(400);
         bmw_2.setProducer("Bayerische Motoren Werke");
 
-
         Car opel = new Car();
         opel.setColour("blue");
         opel.setModel("corsa");
         opel.setPrice(999);
         opel.setProducer("Groupe PSA");
 
-
+        Human human = new Human();
         human.addMyCar(bmw_1);
-
-        System.out.println("________________________");
         human.getSalary();
-
-        //System.out.println(bmw_1.getColour()+" "+bmw_1.getModel()+" "+bmw_1.getProducer()+"  "+bmw_1.getPrice());
         System.out.println("________________________");
+
 
         System.out.println(human.toString());
         System.out.println(bmw_1.toString());
@@ -54,8 +48,6 @@ public class Main {
 
         System.out.println("-----------------------------");
 
-
-        human.setMyCar(opel);
 
         Device device = new Device() {
             @Override
@@ -66,5 +58,33 @@ public class Main {
         };
 
         device.turnOn();
+
+        Phone phone = new Phone();
+        phone.setModel("Nokia");
+
+        Human seller = new Human();
+        seller.setPhone(phone);
+        seller.setPet(animal);
+        seller.setSalary(0.0);
+
+        Human buyer = new Human();
+        buyer.setSalary(1000.0);
+        buyer.setCash();
+
+        System.out.println("---------------");
+
+
+        animal.salleable.sell(seller, buyer, 100.0);
+        System.out.println("---------------");
+        animal_1.salleable.sell(seller, buyer, 200.0);
+        System.out.println("---------------");
+        opel.salleable.sell(seller, buyer, 100.0);
+        System.out.println("---------------");
+        System.out.println("buyer money:" + buyer.getCash());
+        System.out.println("seller money:" + seller.getCash());
+
+        System.out.println(buyer.pet.toString());
+
+
     }
 }
