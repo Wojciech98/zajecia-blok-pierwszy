@@ -1,47 +1,37 @@
 package com.company;
 
 import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
-import com.company.devices.Car;
-import com.company.devices.Device;
-import com.company.devices.Phone;
+import com.company.creatures.Pet;
+import com.company.devices.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
 
-        Animal animal = new Animal() {
-            @Override
-            public void feed(Double foodWeight) {
-
-            }
-        };
+        Animal animal = new Pet();
         animal.feed();
         animal.takeForAWalk();
         animal.takeForAWalk();
 
-        Animal animal_1 = new Animal() {
-            @Override
-            public void feed(Double foodWeight) {
-
-            }
-        };
+        Animal animal_1 = new FarmAnimal("pig",20.0);
 
 
-        Car bmw_1 = new Car();
+        Car bmw_1 = new Disel();
         bmw_1.setColour("red");
         bmw_1.setModel("e46");
         bmw_1.setPrice(400);
         bmw_1.setProducer("Bayerische Motoren Werke");
 
-        Car bmw_2 = new Car();
+        Car bmw_2 = new LPG();
         bmw_2.setColour("red");
         bmw_2.setModel("e46");
         bmw_2.setPrice(400);
         bmw_2.setProducer("Bayerische Motoren Werke");
 
-        Car opel = new Car();
+        Car opel = new Electric();
         opel.setColour("blue");
         opel.setModel("corsa");
         opel.setPrice(999);
@@ -61,13 +51,7 @@ public class Main {
         System.out.println("-----------------------------");
 
 
-        Device device = new Device() {
-            @Override
-            public boolean turnOn() {
-                System.out.println("Turn On");
-                return true;
-            }
-        };
+        Device device = new Phone();
 
         device.turnOn();
 
@@ -96,6 +80,8 @@ public class Main {
         System.out.println("seller money:" + seller.getCash());
 
         System.out.println(buyer.pet.toString());
+
+        System.out.println(Phone.serverAddress);
 
 
     }

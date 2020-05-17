@@ -3,13 +3,15 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Salleable;
 
-public class Car extends Device {
+public abstract class Car extends Device  {
 
 
     public String model;
     public String producer;
     public String colour;
     public int price = 300;
+
+    public abstract String refuel();
 
     public Salleable salleable = new Salleable() {
         @Override
