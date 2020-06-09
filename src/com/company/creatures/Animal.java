@@ -18,7 +18,7 @@ public abstract class Animal implements Feedable {
                     seller.setCash(+price);
                 }
 
-                if (seller.getMyCar() == null) {
+                if (seller.getMyGarage(1) == null) {
                     System.out.println("I don't have a car for sale");
                 } else {
                     System.out.println("I  have a car for sale");

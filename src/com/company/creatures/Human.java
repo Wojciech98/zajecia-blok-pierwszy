@@ -1,33 +1,81 @@
 package com.company.creatures;
 
 
-import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class Human {
+public class Human implements Comparator<Car> {
 
     public Animal pet;
-    private Car myCar;
-    Double salary;
+    private ArrayList<Car> garage;
+    public Car car;
+
+    public ArrayList<Car> getGarage() {
+        return garage;
+    }
+
+    public void setGarage(ArrayList<Car> garage) {
+        this.garage = garage;
+    }
+
+    public Double salary;
     double cash;
     Phone phone;
-
-
     Date date = new Date();
 
-    public String toString() {
-        return pet + " " + myCar + "  " + salary;
-    }
 
+    public String toString() {
+        return pet + " " + garage + "  " + salary;
+    }
 
     public Human() {
+        this.garage = new ArrayList(4);
+
     }
 
-    public void addMyCar(Car car) {
-        this.myCar = car;
+
+    public Human(int initialCapacity) {
+        this.garage = new ArrayList(initialCapacity);
+    }
+
+    public void garageValue() {
+
+        double value;
+        for (int i = 0; i < garage.size(); i++) {
+
+           value =+ garage.get(i).getPrice();
+
+            System.out.print(value);
+        }
+
+
+    }
+    public int compare(Car car_a, Car car_b)
+    {
+        return car_a.getYear() - car_b.getYear();
+    }
+
+
+    public List<Car> sortCarByYear(){
+
+        Collections.sort(garage, this::compare);
+        Collections.reverse(garage);
+        System.out.println("Sorted by year");
+        for (int i=0; i<garage.size(); i++)
+            System.out.println(garage.get(i));
+
+        return garage;
+    }
+
+    public List<Car> addMyCar(Car car, int index) {
+
+        garage.add(index, car);
+
+        return garage;
     }
 
     public Double setSalary(Double salary) {
@@ -48,20 +96,16 @@ public class Human {
         return pet;
     }
 
-    public Car getMyCar() {
-        return myCar;
+    public Car getMyGarage(int index) {
+
+
+        return garage.get(index);
     }
 
-    public void setMyCar(Car myCar) {
-        if (salary >= myCar.price) {
-            System.out.println("You can buy new car!");
-            addMyCar(myCar);
-        } else if (salary > (myCar.price / 12)) {
-            System.out.println("You can buy new car for credit");
-            addMyCar(myCar);
-        } else {
-            System.out.println("You don't have enough money");
-        }
+
+    public void setMyCar(Car car, int index) {
+
+        //  garage.add(index,car);
     }
 
     public Double getSalary() {
