@@ -18,6 +18,14 @@ public class Human implements Comparator<Car> {
         return garage;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public void setGarage(ArrayList<Car> garage) {
         this.garage = garage;
     }
@@ -54,6 +62,7 @@ public class Human implements Comparator<Car> {
 
 
     }
+
     public int compare(Car car_a, Car car_b)
     {
         return car_a.getYear() - car_b.getYear();

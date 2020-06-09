@@ -3,7 +3,11 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Salleable;
 
-public abstract class Car extends Device {
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public abstract class Car extends Device  {
 
 
     public String model;
@@ -11,6 +15,44 @@ public abstract class Car extends Device {
     public String colour;
     public int price = 300;
     public int year;
+
+    public List<Human> carOwner;
+
+    public List<Human> getCarOwner() {
+        return carOwner;
+    }
+    public void setCarOwner(List<Human> carOwner) {
+        this.carOwner = carOwner;
+
+    }
+
+    public int countTransactions(){
+
+       return  carOwner.size();
+    }
+
+    public void checkCarOnwerInPast(Human human) {
+
+
+
+            if (carOwner.equals(human) == true) {
+                System.out.println("True");
+            } else
+                System.out.println("False");
+
+    }
+
+
+    public void checkCarSellerforBuyer(Human seller,Human buyer) {
+
+        for (Human human: carOwner){
+            if(carOwner.equals(seller)&& carOwner.equals(buyer)){
+                System.out.println("");
+            }
+        }
+    }
+
+
 
     public int getYear() {
         return year;
@@ -27,49 +69,36 @@ public abstract class Car extends Device {
         public void sell(Human seller, Human buyer, Double price) {
 
 
-                if (seller.getMyGarage(0) != null) {
-                    System.out.println("I have car for you");
+            if (seller.getMyGarage(0) != null) {
+                System.out.println("I have car for you");
 
 
-                        if (buyer.getMyGarage(0) == null) {
+                if (buyer.getMyGarage(0) == null) {
 
-                            if (buyer.getCash() > price) {
-
-                                seller.setCash(+price);
-                                buyer.setCash(-price);
-                                System.out.println("You buy car");
-
-                            } else {
-                                System.out.println("You do not have enough cash");
-                            }
-                        } else {
-                            System.out.println("I don't have free space");
-                        }
+                    if (buyer.getCash() > price) {
 
 
+                        seller.setCash(+price);
+                        buyer.setCash(-price);
+                        carOwner.add(buyer);
+                        System.out.println("You buy car");
+
+                    } else {
+                        System.out.println("You do not have enough cash");
+                    }
                 } else {
-                    System.out.println("I don't have a car for sale");
+                    System.out.println("I don't have free space");
                 }
+
+
+            } else {
+                System.out.println("I don't have a car for sale");
             }
-
-
+        }
 
 
     };
-//                if (seller.getMyGarage(1) == null) {
-//                    System.out.println("I don't have a car for sale");
-//                } else {
-//                    System.out.println("I  have a car for sale");
-//                    buyer.setCash(-price);
-//                   // buyer.setMyCar(seller.getMyCar(1));
-//                    seller.setCash(+price);
-//                }
-//
-//                if (seller.getPhone() == null) {
-//                    System.out.println("I don't have a phone for sale");
-//                } else {
-//                    System.out.println("I  have a phone for sale");
-//                }
+
 
     public String toString() {
 

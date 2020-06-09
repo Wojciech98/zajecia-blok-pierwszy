@@ -110,6 +110,12 @@ public class Main {
 
 
         opel.salleable.sell(seller, buyer, 100.0);
+        opel.salleable.sell(seller, buyer, 100.0);
+
+        opel.checkCarSellerforBuyer(seller,buyer);
+
+
+        System.out.println(opel.getCarOwner());
 
 
 
