@@ -3,6 +3,9 @@ package com.company.devices;
 import com.company.creatures.Human;
 import com.company.Salleable;
 
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Phone extends Device {
@@ -12,8 +15,10 @@ public class Phone extends Device {
     public static final String appName = "Game";
     public static final String version = "1.1";
     public static final String serverAddress = "8080";
-    public List<String> appList;
+    public List<Application> appList;
+    public Application application;
     public URL url;
+    public  Human human;
     public static
 
 
@@ -49,6 +54,74 @@ public class Phone extends Device {
 
 
     };
+
+    public void installNewApp(){
+        if(human.getCash()>application.price){
+            appList.add(application);
+            human.setCash(-application.price);
+        }
+    }
+
+    public  void installed(Application app){
+        if(app.equals(application)){
+            System.out.println("Application is installed");
+        }else
+            System.out.println("Application isn't installed");
+    }
+
+    public  void installed(String name){
+        if(name.equals(application.getName())){
+            System.out.println("Application is installed");
+        }else
+            System.out.println("Application isn't installed");
+    }
+
+    public List<Application> freeApplication(Application list){
+
+        for (Application app:appList){
+            if (app.price == 0) {
+                List<Application> freeApp = new ArrayList<>();
+
+                freeApp.add(list);
+                return freeApp;
+            }
+        }
+
+       return appList;
+    }
+
+    public void valueAllApp(){
+        double value;
+        for(int i = 0 ; i<appList.size();i++){
+            value =+ appList.get(i).getPrice();
+            System.out.print(value);
+        }
+
+    }
+
+    public void sortByAlphabet(){
+        java.util.Collections.sort(appList, Collator.getInstance());
+    }
+
+
+    public int compare(Application application, Application application_1)
+    {
+        return application.getPrice() - application_1.getPrice();
+    }
+
+
+    public List<Application> sortByPrice(){
+
+        Collections.sort(appList, this::compare);
+        Collections.reverse(appList);
+        System.out.println("Sorted by year");
+        for (int i=0; i<appList.size(); i++)
+            System.out.println(appList.get(i));
+
+        return appList;
+    }
+
+
 
     public Phone() {
 
